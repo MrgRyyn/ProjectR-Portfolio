@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/input.css">
+    <link href="/dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://kit.fontawesome.com/10d55a3023.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-200 p-8">
+
+   <!-- ... (your existing code) ... -->
+
+<!-- desktop menu -->
+<div class="hidden md:flex items-center space-x-10">
+    <!-- ... (other menu items) ... -->
+
+    <div class="relative inline-block">
+        <select class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline" id="desktopLanguageSelect">
+          <option value="en">English</option>
+          <option value="id">Bahasa Indonesia</option>
+        </select>
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12l-8 8H2l8-8-8-8h1.414L10 10.586 16.586 4H18l-8 8z"/></svg>
+        </div>
+    </div>
+
+    <!-- ... (other menu items) ... -->
+</div>
+
+<!-- mobile menu -->
+<div class="md:hidden">
+    <div
+        id="menu"
+        class="absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-playfair bg-lightbaige sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
+    >
+        <!-- ... (other mobile menu items) ... -->
+
+        <div class="relative inline-block">
+            <select class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline" id="desktopLanguageSelect">
+              <option value="en">English</option>
+              <option value="id">Bahasa Indonesia</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12l-8 8H2l8-8-8-8h1.414L10 10.586 16.586 4H18l-8 8z"/></svg>
+            </div>
+        </div>
+
+        <!-- ... (other mobile menu items) ... -->
+
+    </div>
+</div>
+
+<div>
+    <p class="english-content language-content">Hello Everyone</p>
+    <p class="bahasa-content language-content hidden">Hello semuanya</p>
+</div>
+
+<div>
+    <p class="english-content language-content">Hello Everyone</p>
+    <p class="bahasa-content language-content hidden">Hello semuanya</p>
+</div>
+
+<div class="bg-gray-100 h-screen py-8">
+    <div class="container mx-auto px-4">
+        <h1 class="text-2xl font-semibold mb-4">Shopping Cart</h1>
+        <div class="flex flex-col md:flex-row gap-4">
+            <div class="md:w-3/4">
+                <div class="bg-white rounded-lg shadow-md p-6 mb-4">
+                    <table class="w-full">
+                        <thead>
+                            <tr>
+                                <th class="text-left font-semibold">Product</th>
+                                <th class="text-left font-semibold">Price</th>
+                                <th class="text-left font-semibold">Quantity</th>
+                                <th class="text-left font-semibold">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-4">
+                                    <div class="flex items-center">
+                                        <img class="h-16 w-16 mr-4" src="https://via.placeholder.com/150" alt="Product image">
+                                        <span class="font-semibold">Product name</span>
+                                    </div>
+                                </td>
+                                <td class="py-4">$19.99</td>
+                                <td class="py-4">
+                                    <div class="flex items-center">
+                                        <button class="border rounded-md py-2 px-4 mr-2">-</button>
+                                        <span class="text-center w-8">1</span>
+                                        <button class="border rounded-md py-2 px-4 ml-2">+</button>
+                                    </div>
+                                </td>
+                                <td class="py-4">$19.99</td>
+                            </tr>
+                            <!-- More product rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="md:w-1/4">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-lg font-semibold mb-4">Summary</h2>
+                    <div class="flex justify-between mb-2">
+                        <span>Subtotal</span>
+                        <span>$19.99</span>
+                    </div>
+                    <div class="flex justify-between mb-2">
+                        <span>Taxes</span>
+                        <span>$1.99</span>
+                    </div>
+                    <div class="flex justify-between mb-2">
+                        <span>Shipping</span>
+                        <span>$0.00</span>
+                    </div>
+                    <hr class="my-2">
+                    <div class="flex justify-between mb-2">
+                        <span class="font-semibold">Total</span>
+                        <span class="font-semibold">$21.98</span>
+                    </div>
+                    <button class="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 w-full">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    AOS.init({
+        once: true,
+    });
+
+    const btn = document.getElementById('menu-btn')
+    const nav = document.getElementById('menu')
+
+    btn.addEventListener('click', () => {
+        btn.classList.toggle('open')
+        nav.classList.toggle('flex')
+        nav.classList.toggle('hidden')
+    })
+
+    // Get the select elements for desktop and mobile menus
+    var desktopLanguageSelect = document.getElementById('desktopLanguageSelect');
+    var mobileLanguageSelect = document.getElementById('mobileLanguageSelect');
+
+    // Get all elements with the language-content class
+    var languageContentElements = document.querySelectorAll('.language-content');
+
+    // Load the selected language from local storage
+    var selectedLanguage = localStorage.getItem('selectedLanguage');
+
+    // Set the initial selected language
+    if (selectedLanguage) {
+        desktopLanguageSelect.value = selectedLanguage;
+        mobileLanguageSelect.value = selectedLanguage;
+        toggleContentVisibility();
+    }
+
+    // Add event listeners to the select elements
+    desktopLanguageSelect.addEventListener('change', handleLanguageChange);
+    mobileLanguageSelect.addEventListener('change', handleLanguageChange);
+
+    // Function to handle language change
+    function handleLanguageChange() {
+        // Get the selected value
+        var selectedValue = this.value;
+
+        // Save the selected language to local storage
+        localStorage.setItem('selectedLanguage', selectedValue);
+
+        // Toggle visibility based on the selected value
+        toggleContentVisibility();
+    }
+
+    // Function to toggle content visibility based on the selected language
+    function toggleContentVisibility() {
+        var selectedValue = desktopLanguageSelect.value;
+
+        // Toggle visibility based on the selected value for each language-content element
+        languageContentElements.forEach(function (element) {
+            if (selectedValue === 'en' && element.classList.contains('english-content')) {
+                element.classList.remove('hidden');
+            } else if (selectedValue === 'id' && element.classList.contains('bahasa-content')) {
+                element.classList.remove('hidden');
+            } else {
+                element.classList.add('hidden');
+            }
+        });
+    }
+</script>
+
+<!-- ... rest of your code ... -->
+
+
+    </body>
+    </html>

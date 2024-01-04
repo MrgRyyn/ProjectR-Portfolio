@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}", "index.html"],
+  content: ["./src/**/*.{html,js}", "index.html", "test.html"],
+  purge: [
+    "./src/**/*.{html,js}", "index.html", "test.html"  // Adjust the path to match your file structure
+  ],
   theme: {
     screens: {
       sm: '480px',
@@ -21,6 +24,7 @@ module.exports = {
         lightbaige: '#FEF7EF',
         darkblue: '#2E4374',
         blackBrown: '#1E1515',
+        darkerBlue: '#213555',
       }
     },
   },

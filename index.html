@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="src/input.css">
     <link href="/dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://kit.fontawesome.com/10d55a3023.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -22,7 +23,20 @@
                 <a href="#about" class="hover:text-darkblue font-playfair text-lg">About Me</a>
                 <a href="#portfolio" class="hover:text-darkblue font-playfair text-lg ">Projects</a>
                 <a href="#contact" class="hover:text-darkblue font-playfair text-lg px-4 py-2 bg-neutral-300 shadow-lg rounded-full">Get In Touch</a>
-                <a href="#portfolio" class="hover:text-darkblue font-playfair text-lg "><i class="fa-solid fa-globe"></i> English</a>
+                <!-- <div class="relative flex items-center justify-center">
+                    <i class="fa-solid fa-globe text-lg"></i>
+                    <select class="block appearance-none hover:text-darkblue font-playfair text-lg bg-stone-200 px-4 py-2" id="languageSelect">
+                      <option value="en">English</option>
+                      <option value="id">Bahasa Indonesia</option>
+                    </select>
+                </div> -->
+                <div class="relative flex items-center justify-center">
+                    <i class="fa-solid fa-globe text-lg"></i>
+                    <select class="block appearance-none hover:text-darkblue font-playfair text-lg bg-stone-200 px-4 py-2 leading-tight focus:outline-none focus:shadow-outline" id="desktopLanguageSelect">
+                      <option value="en">English</option>
+                      <option value="id">Bahasa Indonesia</option>
+                    </select>
+                </div>
             </div>
 
 
@@ -41,25 +55,53 @@
             <div class="md:hidden">
             <div
                 id="menu"
-                class="absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold bg-lightbaige sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
+                class="absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-playfair bg-lightbaige sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
             >
                 <a href="#about">About Me</a>
                 <a href="#portfolio">Projects</a>
-                <a href="#contact">Get In Touch</a>
+                <a href="#contact" class="hover:text-darkblue font-playfair text-lg px-4 py-2 bg-neutral-300 shadow-lg rounded-full">Get In Touch</a>
+                <div class="relative flex">
+                    <select class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline" id="mobileLanguageSelect">
+                      <option value="en">English</option>
+                      <option value="id">Bahasa Indonesia</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12l-8 8H2l8-8-8-8h1.414L10 10.586 16.586 4H18l-8 8z"/></svg>
+                    </div>
+                    <button id="refreshButton" class=" text-white bg-darkblue rounded-full px-3 py-2">Apply</button>
+                </div>
             </div>
             </div>
     </nav>
 
     <section id="hero" class=" bg-stone-200">
-        <div class="flex flex-col items-center justify-center px-5 py-12 gap-10 m-auto md:py-24 md:items-start md:flex-row">
+        <div class="flex flex-col items-center justify-center px-5 py-12 gap-10 m-auto md:py-24 md:items-start md:flex-row lg:px-10 xl:px-40" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500">
             <div class=" flex flex-1 flex-col text-center md:pl-16 md:text-start lg:pl-28">
-                <p class="font-playfair text-darkblue text-lg mb-5 md:text-xl">Welcome to <span class=" font-semibold">ProjectR</span> </p>
-                <h1 class="font-playfair font-medium text-5xl mb-3 md:text-6xl">Making Your Ideas <br> 
-                    Into <span class=" italic">Reality</span> </h1>
-                <p class=" px-4 font-playfair md:text-2xl md:px-0 md:mb-5">Hello! My name is Muhammad Rayyan Gunawan, a Website developer.</p>
+                <p class=" english-content language-content font-playfair text-darkblue text-lg mb-5 md:text-xl xl:text-2xl">Welcome to <span class=" font-semibold">ProjectR</span> </p>
+                <p class=" bahasa-content language-content hidden font-playfair text-darkblue text-lg mb-5 md:text-xl xl:text-2xl">Selamat datang di <span class=" font-semibold">ProjectR</span> </p>
+                <h1 class=" english-content language-content font-playfair font-medium text-5xl mb-3 md:text-6xl xl:text-7xl">Making Your Ideas <br> 
+                    Into <span class=" italic" id="typing-effect">Reality</span> </h1>
+                <h1 class=" bahasa-content language-content hidden font-playfair font-medium text-5xl mb-3 md:text-6xl xl:text-7xl">Merubah Idemu <br> 
+                    Menjadi <span class=" italic" id="typing-effect">Realita</span> </h1>
+                <p class=" english-content language-content px-4 font-playfair md:text-2xl md:px-0 md:mb-5">Hello! My name is Muhammad Rayyan Gunawan, a Website developer.</p>
+                <p class=" bahasa-content language-content hidden px-4 font-playfair md:text-2xl md:px-0 md:mb-5">Halo! Nama saya Muhammad Rayyan Gunawan, seorang website developer.</p>
                 <div class="hidden flex-row gap-5 mt-7 md:flex">
-                    <button class=" bg-blackBrown text-white px-8 py-3 font-raleway rounded-full">My Portfolio</button>
-                    <button class=" border-2 border-blackBrown text-blackBrown px-8 py-3 font-raleway rounded-full">Get In Touch</button>
+                    <a href="#portfolio">
+                        <button class="overflow-hidden relative py-3 px-6 bg-blackBrown text-white border-none rounded-full font-raleway cursor-pointer z-10 group">
+                            My Portfolio
+                                <span class="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
+                                <span class="absolute w-36 h-32 -top-8 -left-2 bg-blue-500  rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"></span>
+                                <span class="absolute w-36 h-32 -top-8 -left-2 bg-darkblue  rotate-12 transform scale-x-0 group-hover:scale-x-50 transition-transform group-hover:duration-1000 duration-500 origin-left"></span>
+                                <span class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-3 left-8 z-10">Explore!</span>
+                            </button>
+                    </a>
+                    
+                    <a href="#contact">
+                        <button  class="relative py-3 px-8 text-blackBrown font-raleway rounded-full overflow-hidden border-2 border-blackBrown transition-all duration-400 ease-in-out shadow-md hover:border-0 hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-darkblue before:to-blue-500 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-[50px] hover:before:left-0">
+                            Get In Touch
+                        </button>
+                    </a>  
+                    
                 </div>
             </div>
             <div class="flex-1 flex items-center justify-center">
@@ -73,27 +115,260 @@
     </section>
 
     <section id="about" class=" bg-darkblue">
-        <div class="flex container flex-col px-10 py-10 items-center justify-center md:items-start md:px-20 lg:px-40 md:flex-row">
-            <h1 class=" text-5xl mb-10 font-playfair text-white md:hidden">About Me</h1>
-            <div class=" flex items-center justify-center">
-                <img src="img/my-photo.jpg" alt="" class="w-2/3 mb-10 rounded-2xl">
+        <div class="flex flex-col px-10 py-10 items-center justify-center md:items-start md:px-20 lg:px-28 md:flex-row xl:px-40">
+            <h1 class=" english-content text-5xl mb-10 font-playfair text-center text-white md:hidden">About Me</h1>
+            <h1 class=" bahasa-content hidden text-5xl mb-10 font-playfair text-center text-white md:hidden">Tentang Aku</h1>
+            <div class=" flex items-center justify-center"  data-aos="fade-right" data-aos-duration="3000">
+                <img src="img/my-photo.jpg" alt="" class="w-3/4 mb-10 rounded-2xl md:mr-10 ">
             </div>
-            <div class=" flex flex-col ">
-                <h2 class="hidden text-5xl text-center text-white font-playfair md:text-start md:block">About Me</h2>
-                <p class=" text-white text-center font-raleway md:text-start">Hi there! I'm Rayyan, a web developer from Bandung, Indonesia. I specialize in HTML, CSS, JavaScript, PHP, and Laravel. While I'm new to the field, I'm eager to gain experience and deliver exceptional results. Let's collaborate and bring your website ideas to life!</p>
+            <div class=" flex flex-col "  data-aos="fade-right" data-aos-duration="1500">
+                <h2 class="hidden text-5xl text-white font-playfair mb-8 md:text-start md:block xl:text-7xl language-content english-content">About Me</h2>
+                <h2 class="hidden text-5xl text-white font-playfair mb-8 md:text-start md:hidden xl:text-7xl language-content bahasa-content">Tentang Aku</h2>
+                <p class=" english-content language-content text-white text-center font-raleway md:text-lg md:text-start lg:text-xl xl:text-2xl xl:pr-40">Hi there! I'm Rayyan, a web developer from Bandung, Indonesia. I specialize in HTML, CSS, JavaScript, PHP, and Laravel. While I'm new to the field, I'm eager to gain experience and deliver exceptional results. Let's collaborate and bring your website ideas to life!</p>
+                <p class=" bahasa-content language-content hidden text-white text-center font-raleway md:text-lg md:text-start lg:text-xl xl:text-2xl xl:pr-40">Hai, semuanya! Saya Rayyan, seorang web developer dari Bandung, Indonesia. Saya berspesialisasi dalam bahasa pemrogaman HTML, CSS, JavaScript, PHP, dan Laravel. Meskipun saya baru di dunia pekerjaan, saya ingin mendapatkan pengalaman dan memberikan hasil yang luar biasa. Mari berkolaborasi dan wujudkan ide situs web Anda!</p>
             </div>
         </div>
     </section>
 
-    <script>
-        const btn = document.getElementById('menu-btn')
-        const nav = document.getElementById('menu')
+    <section id="expertise" class=" bg-darkerBlue">
+        <div class=" flex flex-col items-center justify-center py-7 px-10">
+            <h2 class=" font-playfair text-3xl mb-10 text-white md:text-5xl">My Expertise</h2>
+            <div class=" flex items-end justify-center flex-wrap gap-10 md:gap-28">
+                <div class="flex flex-col items-center gap-2" data-aos="fade-left" data-aos-duration="1000">
+                    <i class="fa-brands fa-html5  text-8xl ease-in-out duration-300 hover:text-orange-500 xl:text-9xl"></i>
+                    <span class=" font-semibold text-white font-raleway">HTML</span>
+                </div>
+
+                <div class="flex items-center flex-col" data-aos="fade-left" data-aos-duration="1500">
+                    <i class="fa-brands fa-css3-alt text-8xl ease-in-out duration-300 hover:text-blue-700 xl:text-9xl"></i>
+                    <p class="text-white font-semibold font-raleway">CSS3</p>
+                </div>
+
+                <div class="flex items-center flex-col" data-aos="fade-left" data-aos-duration="2000">
+                    <i class="fa-brands fa-js text-8xl ease-in-out duration-300 hover:text-yellow-300 xl:text-9xl"></i>
+                    <p class="text-white font-semibold font-raleway">Javascript</p>
+                </div>
+
+                <div class="flex items-center flex-col" data-aos="fade-left" data-aos-duration="2500">
+                    <i class="fa-brands fa-php text-7xl ease-in-out duration-300 hover:text-indigo-500 xl:text-9xl"></i>
+                    <p class="text-white font-semibold font-raleway">php</p>
+                </div>
+
+
+                <div class="flex items-center flex-col" data-aos="fade-left" data-aos-duration="3000">
+                    <i class="fa-brands fa-laravel text-8xl ease-in-out duration-300 hover:text-red-600 xl:text-9xl"></i>
+                    <p class="text-white font-semibold font-raleway">Laravel</p>
+                </div>
+
+            </ul>
+        </div> 
+    </section>
+
+    <section id="portfolio" class="bg-stone-200">
+        <div class=" flex flex-col gap-10 items-start justify-start px-6 py-7 md:px-20 md:py-16 lg:px-28 xl:px-40">
+            <div class="flex items-center justify-center mb-7"><h1 class=" font-bold font-playfair text-3xl md:text-5xl" data-aos="fade-up" data-aos-duration="2000">Projects.</h1></div>  
+            <div class="flex flex-wrap gap-2 mb-10">
+                <li class=" bg-darkblue list-none text-white px-3 py-2 rounded-full font-raleway" data-aos="fade-right" data-aos-duration="2500">Show All</li>
+                <li class=" bg-neutral-300 list-none text-blackBrown px-3 py-2 rounded-full font-raleway" data-aos="fade-right" data-aos-duration="2000">Ecommerce</li>
+                <li class=" bg-neutral-300 list-none text-blackBrown px-3 py-2 rounded-full font-raleway" data-aos="fade-right" data-aos-duration="2000">Blog</li>
+            </div>
+
+              
+            <div class="flex flex-wrap items-center sm:justify-center md:justify-start gap-10">
+
+                <div class="card">
+                    <img src="img/my-photo.jpg" alt="">
+                    <div class="card__content">
+                      <p class="card__title">Marketplace Ecommerce for Service Seller</p>
+                      <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                      <a href="#portfolio" class=" font-raleway font-medium text-blue-400 mt-7">View More -></a>
+                    </div>
+                  </div>
+    
+                  <div class="card">
+                    <img src="img/my-photo.jpg" alt="">
+                    <div class="card__content">
+                      <p class="card__title">Marketplace Ecommerce for Service Seller</p>
+                      <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                      <a href="#portfolio" class=" font-raleway font-medium text-blue-400 mt-7">View More -></a>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <img src="img/my-photo.jpg" alt="">
+                    <div class="card__content">
+                      <p class="card__title">Marketplace Ecommerce for Service Seller</p>
+                      <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                      <a href="#portfolio" class=" font-raleway font-medium text-blue-400 mt-7">View More -></a>
+                    </div>
+                  </div>
+    
+                  <div class="card">
+                    <img src="img/my-photo.jpg" alt="">
+                    <div class="card__content">
+                      <p class="card__title">Marketplace Ecommerce for Service Seller</p>
+                      <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                      <a href="#portfolio" class=" font-raleway font-medium text-blue-400 mt-7">View More -></a>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <img src="img/my-photo.jpg" alt="">
+                    <div class="card__content">
+                      <p class="card__title">Marketplace Ecommerce for Service Seller</p>
+                      <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                      <a href="#portfolio" class=" font-raleway font-medium text-blue-400 mt-7">View More -></a>
+                    </div>
+                  </div>
+
+
+                 <div class=" bg-gray-100 px-5 py-5 rounded-xl flex flex-col items-start justify-start md:items-start md:justify-center md:flex-row lg:px-20 lg:py-10">
+                    <img src="img/my-photo.jpg" alt="" class=" w-72 h-72 mb-5 object-cover rounded-lg md:h-80 md:w-80">
+                    <div class=" md:ml-10">
+                        <h2 class=" font-bold text-xl font-raleway mb-4">Marketplace Ecommerce for Service Seller</h2>
+                        <p class=" mb-3">Project ini merupakan salah satu project website terbaik saya, dimana project ini membuat saya mendapatkan prestasi silver medal di kompetisi PPID Innovation competiton tingkat internasional yang diselenggarakan di Penang, Malaysia. Website ini merupakan platform marketplace untuk para penjual jasa, dimana para penjual jasa dan pembeli atau orang-orang yang sedang mencari jasa, bertumu di website marketplace ini</p>
+                        <a href="#portfolio" class=" font-raleway font-medium text-blue-400">View More -></a>
+                    </div>    
+                 </div>
+
+                 <div class=" bg-gray-100 px-5 py-5 rounded-xl flex flex-col items-start justify-start md:items-start md:justify-center md:flex-row-reverse lg:px-20 lg:py-10">
+                    <img src="img/my-photo.jpg" alt="" class=" w-72 h-72 mb-5 object-cover flex-1 rounded-lg">
+                    <div class=" md:ml-10">
+                        <h2 class=" font-bold text-xl font-raleway mb-4">Marketplace Ecommerce for Service Seller</h2>
+                        <p class=" mb-3">Project ini merupakan salah satu project website terbaik saya, dimana project ini membuat saya mendapatkan prestasi silver medal di kompetisi PPID Innovation competiton tingkat internasional yang diselenggarakan di Penang, Malaysia. Website ini merupakan platform marketplace untuk para penjual jasa, dimana para penjual jasa dan pembeli atau orang-orang yang sedang mencari jasa, bertumu di website marketplace ini</p>
+                        <a href="#portfolio" class=" font-raleway font-medium text-blue-400">View More -></a>
+                    </div>    
+                 </div>
+
+                 <div class=" bg-gray-100 px-5 py-5 rounded-xl flex flex-col items-start justify-start md:items-start md:justify-center md:flex-row lg:px-20 lg:py-10">
+                    <img src="img/my-photo.jpg" alt="" class=" w-72 h-72 mb-5 object-cover rounded-lg">
+                    <div class=" md:ml-10">
+                        <h2 class=" font-bold text-xl font-raleway mb-4">Marketplace Ecommerce for Service Seller</h2>
+                        <p class=" mb-3">Project ini merupakan salah satu project website terbaik saya, dimana project ini membuat saya mendapatkan prestasi silver medal di kompetisi PPID Innovation competiton tingkat internasional yang diselenggarakan di Penang, Malaysia. Website ini merupakan platform marketplace untuk para penjual jasa, dimana para penjual jasa dan pembeli atau orang-orang yang sedang mencari jasa, bertumu di website marketplace ini</p>
+                        <a href="#portfolio" class=" font-raleway font-medium text-blue-400">View More -></a>
+                    </div>    
+                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="bg-stone-200 px-3">
+        <div class="flex flex-col bg-white px-2 py-3">
+            <h1 class=" text-xl font-playfair">Let's work together</h1>
+            <div class="flex flex-col">
+                <div class=" flex flex-col">
+                    <h2 class="font-raleway">Email me</h2>
+                    <form action="" class="flex flex-col">
+                        <input type="text" class=" border-b-2 border-blackBrown" placeholder="Your Name">
+                        <input type="text" class=" border-b-2 border-blackBrown" placeholder="Your Email">
+                        <input type="textarea" class="" placeholder="Description on your project...">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+      
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      <script>
+        AOS.init({
+        once: true,
+        });
+
+        const btn = document.getElementById('menu-btn');
+        const nav = document.getElementById('menu');
 
         btn.addEventListener('click', () => {
-        btn.classList.toggle('open')
-        nav.classList.toggle('flex')
-        nav.classList.toggle('hidden')
-        })
+            btn.classList.toggle('open');
+            nav.classList.toggle('flex');
+            nav.classList.toggle('hidden');
+        });
+
+        // Check if the refreshButton element exists before adding the event listener
+        const refreshButton = document.getElementById('refreshButton');
+        if (refreshButton) {
+            refreshButton.addEventListener('click', function() {
+                location.reload();
+            });
+        }
+        
+         // Function to create a typing effect
+         function typeEffect(element, speed) {
+            let text = element.getAttribute('data-text');
+            element.innerHTML = '';
+
+            text.split('').forEach(function (char, index) {
+                setTimeout(function () {
+                    element.innerHTML += char;
+                }, speed * index);
+            });
+
+            // After typing, wait for a short time and then call the function again
+            setTimeout(function () {
+                typeEffect(element, speed);
+            }, speed * text.length + 1000); // Adjust the delay before restarting (milliseconds)
+        }
+
+        // Get the element by id
+        const typingElement = document.getElementById('typing-effect');
+
+        // Set the original text as a data attribute
+        typingElement.setAttribute('data-text', typingElement.textContent);
+
+        // Call the typing effect function
+        typeEffect(typingElement, 100); // Adjust the speed (milliseconds per character) as needed
+
+
+
+        // Get the select elements for desktop and mobile menus
+        var desktopLanguageSelect = document.getElementById('desktopLanguageSelect');
+        var mobileLanguageSelect = document.getElementById('mobileLanguageSelect');
+
+        // Get all elements with the language-content class
+        var languageContentElements = document.querySelectorAll('.language-content');
+
+        // Load the selected language from local storage
+        var selectedLanguage = localStorage.getItem('selectedLanguage');
+
+        // Set the initial selected language
+        if (selectedLanguage) {
+            desktopLanguageSelect.value = selectedLanguage;
+            mobileLanguageSelect.value = selectedLanguage;
+            toggleContentVisibility();
+        }
+
+        // Add event listeners to the select elements
+        desktopLanguageSelect.addEventListener('change', handleLanguageChange);
+        mobileLanguageSelect.addEventListener('change', handleLanguageChange);
+
+        // Function to handle language change
+        function handleLanguageChange() {
+            console.log('Language changed');
+            // Get the selected value
+            var selectedValue = this.value;
+
+            // Save the selected language to local storage
+            localStorage.setItem('selectedLanguage', selectedValue);
+
+            // Toggle visibility based on the selected value
+            toggleContentVisibility();
+        }
+
+        // Function to toggle content visibility based on the selected language
+        function toggleContentVisibility() {
+            console.log('Toggling content visibility');
+            var selectedValue = desktopLanguageSelect.value;
+
+            // Toggle visibility based on the selected value for each language-content element
+            languageContentElements.forEach(function (element) {
+                if (selectedValue === 'en' && element.classList.contains('english-content')) {
+                    element.classList.remove('hidden');
+                } else if (selectedValue === 'id' && element.classList.contains('bahasa-content')) {
+                    element.classList.remove('hidden');
+                } else {
+                    element.classList.add('hidden');
+                }
+            });
+        }
       </script>
 </body>
 </html>
