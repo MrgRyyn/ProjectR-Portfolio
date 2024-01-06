@@ -87,15 +87,15 @@
   line-height: 1.4;
 }
 
-@media (max-width: 700px){
+@media (max-width: 768px){
   .card{
-    width: 250px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
   }
 
   .card img {
-    width: 250px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
     object-fit: cover;
   }
 }
