@@ -91,8 +91,8 @@
                         <thead>
                             <tr>
                                 <th class="text-left font-semibold">Product</th>
+                                <th class="text-left font-semibold">Package</th>
                                 <th class="text-left font-semibold">Price</th>
-                                <th class="text-left font-semibold">Quantity</th>
                                 <th class="text-left font-semibold">Total</th>
                             </tr>
                         </thead>
@@ -104,14 +104,15 @@
                                         <span class="font-semibold">Product name</span>
                                     </div>
                                 </td>
-                                <td class="py-4">$19.99</td>
                                 <td class="py-4">
-                                    <div class="flex items-center">
-                                        <button class="border rounded-md py-2 px-4 mr-2">-</button>
-                                        <span class="text-center w-8">1</span>
-                                        <button class="border rounded-md py-2 px-4 ml-2">+</button>
-                                    </div>
+                                    <select id="package-select" class="bg-white border border-gray-100 shadow-md py-2 px-2 rounded-lg">
+                                        <option value="Rp{{ number_format($product->price) }}">Select package</option>
+                                        <option value="Rp{{ number_format($product->price) }}">Basic</option>
+                                        <option value="Rp{{ number_format($product->price2) }}">Standard</option>
+                                        <option value="Rp{{ number_format($product->price3) }}">Premium</option>
+                                    </select>
                                 </td>
+                                <td class="py-4">$19.99</td>
                                 <td class="py-4">$19.99</td>
                             </tr>
                             <!-- More product rows -->
